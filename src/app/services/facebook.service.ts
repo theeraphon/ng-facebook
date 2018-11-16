@@ -121,7 +121,6 @@ export class FacebookService {
           } else {
             observer.next(response);
           }
-
         });
 
       } catch (e) {
@@ -131,7 +130,7 @@ export class FacebookService {
   }
 
   public getUserInfo(userId = 'me'): Observable<any> {
-    return this.api(`/${userId}`, ApiMethod.Get);
+    return this.api(`/${userId}`, ApiMethod.Get, { fields: 'id, name, email' });
   }
 
   public getUserPicture(userId = 'me'): Observable<any> {
